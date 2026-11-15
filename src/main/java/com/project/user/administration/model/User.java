@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -29,4 +32,6 @@ public class User {
     @Column(columnDefinition = "email")
     private String email;
 
+    @OneToMany(mappedBy = "user")
+    private List<UserLogin> logins = new ArrayList<>();
 }
